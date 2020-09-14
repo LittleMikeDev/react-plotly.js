@@ -94,7 +94,7 @@ export default function plotComponentFactory(Plotly) {
             this.attachUpdateEvents();
           }
         })
-        .catch(err => {
+        .catch((err) => {
           if (this.props.onError) {
             this.props.onError(err);
           }
@@ -152,7 +152,7 @@ export default function plotComponentFactory(Plotly) {
         return;
       }
 
-      updateEvents.forEach(updateEvent => {
+      updateEvents.forEach((updateEvent) => {
         this.el.on(updateEvent, this.handleUpdate);
       });
     }
@@ -162,7 +162,7 @@ export default function plotComponentFactory(Plotly) {
         return;
       }
 
-      updateEvents.forEach(updateEvent => {
+      updateEvents.forEach((updateEvent) => {
         this.el.removeListener(updateEvent, this.handleUpdate);
       });
     }
@@ -207,7 +207,7 @@ export default function plotComponentFactory(Plotly) {
 
     // Attach and remove event handlers as they're added or removed from props:
     syncEventHandlers() {
-      eventNames.forEach(eventName => {
+      eventNames.forEach((eventName) => {
         const prop = this.props['on' + eventName];
         const handler = this.handlers[eventName];
         const hasHandler = Boolean(handler);
@@ -268,7 +268,7 @@ export default function plotComponentFactory(Plotly) {
     divId: PropTypes.string,
   };
 
-  eventNames.forEach(eventName => {
+  eventNames.forEach((eventName) => {
     PlotlyComponent.propTypes['on' + eventName] = PropTypes.func;
   });
 
